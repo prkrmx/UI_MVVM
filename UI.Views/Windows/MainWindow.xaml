@@ -1,12 +1,53 @@
-﻿<Window x:Class="UI.Views.Windows.MainWindow"
+﻿<Controls:MetroWindow x:Class="UI.Views.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI.Views.Windows"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:Converters="http://metro.mahapps.com/winfx/xaml/shared"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:views="clr-namespace:UI.Views.Views"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Style="{StaticResource WindowStyle}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loaded}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Unloaded">
+            <i:InvokeCommandAction Command="{Binding Unloaded}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="flyout" Header="{DynamicResource AppStyle}" Position="Right" Width="300" Theme="Adapt">
+                <views:StyleView/>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+    <!--<Controls:MetroWindow.TitleTemplate>
+        <DataTemplate>
+            <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=AppTitle, Converter={Converters:ToUpperConverter}}"
+                   TextTrimming="CharacterEllipsis"
+                   VerticalAlignment="Center"
+                   Margin="8 -1 8 0"
+                   FontWeight="Light"
+                   FontSize="{DynamicResource WindowTitleFontSize}"
+                   FontFamily="{DynamicResource HeaderFontFamily}" />
+        </DataTemplate>
+    </Controls:MetroWindow.TitleTemplate>-->
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <ToggleButton IsChecked="{Binding ElementName=flyout, Path=IsOpen}" Cursor="Hand">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Height="17" Kind="ThemeLightDark" />
+                    <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="{DynamicResource AppStyle}" />
+                </StackPanel>
+            </ToggleButton>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <!--<ContentControl Content="{Binding SelectedViewModel}"/>-->
+    <views:MenuView/>
+</Controls:MetroWindow>

@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using EZLocalizeNS;
+using log4net;
 using MahApps.Metro;
 using Microsoft.Win32;
 using System;
@@ -8,6 +9,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
+using UI.DataTransfer.Objects;
 
 namespace UI.Views
 {
@@ -21,8 +23,9 @@ namespace UI.Views
         {
             Log.Info("        =============  Started New Session Logging  =============        ");
 
-            //ThemeManager.AddAppTheme("DarkTheme", new Uri("pack://application:,,,/Style/DarkTheme.xaml"));
-            //ThemeManager.AddAppTheme("LightTheme", new Uri("pack://application:,,,/Style/LightTheme.xaml"));
+            ThemeManager.AddAppTheme("Day", new Uri("pack://application:,,,/Themes/Day.xaml"));
+            ThemeManager.AddAppTheme("Dark", new Uri("pack://application:,,,/Themes/Dark.xaml"));
+            ThemeManager.AddAppTheme("Night", new Uri("pack://application:,,,/Themes/Night.xaml"));
 
 
             EventManager.RegisterClassHandler(
@@ -31,6 +34,7 @@ namespace UI.Views
                 typeof(TextBox), TextBox.GotFocusEvent, new RoutedEventHandler(TextBox_GotFocus));
 
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+            DTO.AppLocalize = new EZLocalize(App.Current.Resources, "en", null, "Languages\\", "Interface");
 
 
             FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),
@@ -100,9 +104,10 @@ namespace UI.Views
             if (subKey == null)
                 subKey = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\MP\UI DEV\PrevSesParameters");
 
+            DTO.AppLocalize.ChangeLanguage(subKey.GetValue("Language", "ru").ToString());
             ThemeManager.ChangeAppStyle(Application.Current,
                 ThemeManager.GetAccent(subKey.GetValue("Accent", "Lime").ToString()),
-                ThemeManager.GetAppTheme(subKey.GetValue("AppTheme", "BaseLight").ToString()));
+                ThemeManager.GetAppTheme(subKey.GetValue("AppTheme", "Night").ToString()));
             subKey.Close();
 
         }

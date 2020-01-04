@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--Main Window Menu-->
+    <sys:String x:Key="Home">CASA</sys:String>
+    <sys:String x:Key="About">SOBRE</sys:String>
+    <sys:String x:Key="AppStyle">APARÊNCIA</sys:String>
+
+
+    <!--Style View -->
+    <sys:String x:Key="Accents">ACENTOS</sys:String>
+    <sys:String x:Key="DarkMode">MODO ESCURO</sys:String>
+    <sys:String x:Key="Language">LÍNGUA</sys:String>
+</ResourceDictionary>
+    
+    
+
+
+
+

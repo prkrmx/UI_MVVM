@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!--Main Window Menu-->
+    <sys:String x:Key="Home">ГЛАВНАЯ</sys:String>
+    <sys:String x:Key="About">О ПРОГРАММЕ</sys:String>
+    <sys:String x:Key="AppStyle">ВНЕШНИЙ ВИД</sys:String>
+
+
+    <!--Style View -->
+    <sys:String x:Key="Accents">АКЦЕНТЫ</sys:String>
+    <sys:String x:Key="DarkMode">ТЕМНЫЙ РЕЖИМ</sys:String>
+    <sys:String x:Key="Language">ЯЗЫК</sys:String>
+
+</ResourceDictionary>

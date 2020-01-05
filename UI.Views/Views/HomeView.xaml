@@ -4,12 +4,92 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UI.Views.Views"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"       
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1300">
     <Grid>
-        <TextBlock Text="Home View"
-                   FontSize="32"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="5"  Background="{DynamicResource GroupBoxBackground}">
+            <Border BorderThickness="0,0,0,2" Margin="0,0,0,0" 
+                    Background="{DynamicResource MenuHeaderBrush}" 
+                    BorderBrush="{DynamicResource MenuHeaderBorderBrush}">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="GSM RECEIVER" Margin="10,2" FontSize="18"/>
+                    <Controls:ToggleSwitchButton  Width="50" Height="28" Name="IsGSM" IsChecked="True"/>
+                </StackPanel>
+            </Border>
+            
+
+            
+            <Grid Margin="10,0,10,10" IsEnabled="{Binding ElementName=IsGSM, Path=IsChecked, UpdateSourceTrigger=PropertyChanged}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="27"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <TextBlock Text="ARFCN" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="15"/>
+                <TextBox Text="{Binding Path=ChannelGSM.DL, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" FontSize="15" Height="30" />
+
+                <TextBlock Text="MCC" Grid.Row="0" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=ChannelGSM.MCC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="3" FontSize="15" Height="30"/>
+
+                <TextBlock Text="MNC" Grid.Row="0" Grid.Column="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=ChannelGSM.MNC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="5" FontSize="15" Height="30"/>
+
+                <TextBlock Text="LAC" Grid.Row="0" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=ChannelGSM.LAC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="7" FontSize="15" Height="30"/>
+
+                <TextBlock Text="BAND" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <ComboBox Grid.Row="3" Grid.Column="1" FontSize="15" Height="30" ItemsSource="{Binding Path=GSM_Bands}" SelectedItem="{Binding Path=ChannelGSM.BAND_GSM}" />
+
+                <TextBlock Text="CELLID" Grid.Row="2" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=ChannelGSM.CELLID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="3" FontSize="15" Height="30"/>
+
+                <TextBlock Text="BSCC" Grid.Row="2" Grid.Column="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=ChannelGSM.BSCC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="5" FontSize="15" Height="30"/>
+
+                <TextBlock Text="PLMNCC" Grid.Row="2" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=ChannelGSM.PLMNCC, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="3" Grid.Column="7" FontSize="15" Height="30"/>
+
+                <TextBlock Text="IP"  Grid.Row="4" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=UnitGSM.IP}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" FontSize="15" Height="30" />
+
+                <TextBlock Text="AMP IP"  Grid.Row="4" Grid.Column="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding Path=AmplifierGSM.IP}" Grid.Row="5" Grid.Column="5" Grid.ColumnSpan="1" FontSize="15" Height="30" />
+
+                <TextBlock Text="CRO"  Grid.Row="4" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                <Controls:NumericUpDown Grid.Row="5" Grid.Column="7" FontSize="15" Height="30" Minimum="0" Maximum="126" Value="2" Interval = "2" />
+
+            </Grid>
+        </StackPanel>
     </Grid>
 </UserControl>

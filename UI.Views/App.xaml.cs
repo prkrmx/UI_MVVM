@@ -24,7 +24,7 @@ namespace UI.Views
             Log.Info("        =============  Started New Session Logging  =============        ");
 
             ThemeManager.AddAppTheme("Day", new Uri("pack://application:,,,/Themes/Day.xaml"));
-            ThemeManager.AddAppTheme("Dark", new Uri("pack://application:,,,/Themes/Dark.xaml"));
+            ThemeManager.AddAppTheme("Tinted", new Uri("pack://application:,,,/Themes/Tinted.xaml"));
             ThemeManager.AddAppTheme("Night", new Uri("pack://application:,,,/Themes/Night.xaml"));
 
 

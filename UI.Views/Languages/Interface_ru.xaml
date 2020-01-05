@@ -9,6 +9,7 @@
 
     <!--Style View -->
     <sys:String x:Key="Accents">АКЦЕНТЫ</sys:String>
+    <sys:String x:Key="Themes">THEMES</sys:String>
     <sys:String x:Key="DarkMode">ТЕМНЫЙ РЕЖИМ</sys:String>
     <sys:String x:Key="Language">ЯЗЫК</sys:String>
 

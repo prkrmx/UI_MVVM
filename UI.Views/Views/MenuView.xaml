@@ -10,7 +10,7 @@
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1300">
 
     <UserControl.DataContext>
         <viewModels:MenuViewModel/>
@@ -34,11 +34,11 @@
                                     VerticalAlignment="Center"
                                     Content="{Binding Icon}"
                                     Focusable="False"
-                                    Foreground="White" />
+                                    Foreground="{DynamicResource MenuHeaderForeground}" />
                     <TextBlock Grid.Column="1"
                                VerticalAlignment="Center"
                                FontSize="16"
-                               Foreground="White"
+                               Foreground="{DynamicResource MenuHeaderForeground}"
                                Text="{Binding ToolTip}" />
                 </Grid>
                 <DataTemplate.Triggers>
@@ -63,12 +63,13 @@
                                 DisplayMode="CompactInline"
                                 Foreground="White"
                                 IsPaneOpen="False"
-                                SelectedItem="{Binding SelectedMenuItem}"
+                                SelectedIndex="0"
                                 ItemsSource="{Binding MenuItems}"
                                 OptionsItemsSource="{Binding MenuOptionItems}"
                                 ItemTemplate="{StaticResource MenuItemTemplate}"
                                 OptionsItemTemplate="{StaticResource MenuItemTemplate}"
-                                PaneBackground="#FF444444">
+                                PaneBackground="{DynamicResource MenuHeaderBrush}" 
+                                PaneForeground="{DynamicResource BlackBrush}">
 
             <!--  Content  -->
             <controls:HamburgerMenu.Content>
@@ -86,24 +87,25 @@
             <!--  Content template  -->
             <controls:HamburgerMenu.ContentTemplate>
                 <DataTemplate DataType="{x:Type controls:HamburgerMenuItem}">
-                    <Grid x:Name="TheContentGrid">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="48" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Border Grid.Row="0" Background="#FF444444">
-                            <TextBlock x:Name="Header" Margin="-48,0,0,0"
+                        <Border Background="{DynamicResource MenuHeaderBrush}" BorderThickness="1,0,0,0" 
+                                BorderBrush="{DynamicResource MenuHeaderBorderBrush}">
+                            <TextBlock Margin="-48,0,0,0"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        FontSize="24"
-                                       Foreground="White"
-                                       Text="{Binding ToolTip}" />
+                                       Foreground="{DynamicResource MainForegroundBrush}"
+                                       Text="{Binding ToolTip}"/>
                         </Border>
-                        <ContentControl x:Name="TheContent"
-                                        Grid.Row="1"
-                                        Content="{Binding Tag}"
-                                        Focusable="False"
-                                        Foreground="{DynamicResource BlackBrush}" />
+                        <Border Grid.Row="1" Background="{DynamicResource MenuContentBrush}" BorderThickness="1" 
+                                BorderBrush="{DynamicResource MenuContentBorderBrush}">
+                            <ContentControl Content="{Binding Tag}" Focusable="False"/>
+                        </Border>
+                        
                     </Grid>
                 </DataTemplate>
             </controls:HamburgerMenu.ContentTemplate>

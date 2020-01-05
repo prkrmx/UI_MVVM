@@ -83,6 +83,7 @@ namespace UI.ViewModels.ViewModels
         public RelayCommand Loaded { get; set; }
         public RelayCommand Unloaded { get; set; }
         public RelayCommand SetAccent { get; set; }
+        public RelayCommand SwitchTheme { get; private set; }
 
         #endregion
 
@@ -93,6 +94,7 @@ namespace UI.ViewModels.ViewModels
             Loaded = new RelayCommand(OnLoaded);
             Unloaded = new RelayCommand(OnUnloaded);
             SetAccent = new RelayCommand(OnSetAccent);
+            SwitchTheme = new RelayCommand(OnSwitchTheme);
 
 
             Languages = new List<Language>
@@ -105,9 +107,19 @@ namespace UI.ViewModels.ViewModels
             GetSetting();
         }
 
+
         #endregion
 
         #region Commands
+
+        private void OnSwitchTheme(object parameter)
+        {
+            string mode = parameter as string;
+            var theme = ThemeManager.DetectAppStyle(Application.Current);
+            ThemeManager.ChangeAppStyle(Application.Current, theme.Item2, ThemeManager.GetAppTheme(mode));
+            Log.Debug(String.Format("Set App Theme to {0}", mode));
+            SaveSetting("AppTheme", mode);
+        }
         private void OnSetAccent(object parameter)
         {
             Log.Debug(String.Format("Set Accent Event"));

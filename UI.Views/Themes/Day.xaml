@@ -1,7 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
-    
+    <!--=====================================================-->
+    <SolidColorBrush x:Key="MenuHeaderBrush" options:Freeze="True" Color="#FFFFFFFF"/>
+    <SolidColorBrush x:Key="MenuHeaderBorderBrush" options:Freeze="True" Color="#FFE7E7E7" />
+    <SolidColorBrush x:Key="MenuContentBrush" options:Freeze="True" Color="#FFDEE3E7"/>
+    <SolidColorBrush x:Key="MenuContentBorderBrush" options:Freeze="True" Color="#FFCACFD1" />
+
+    <SolidColorBrush x:Key="MenuHeaderForeground" options:Freeze="True" Color="#FF222222"/>
+    <SolidColorBrush x:Key="MainForegroundBrush" options:Freeze="True" Color="#FF999999" />
+
+    <SolidColorBrush x:Key="GroupBoxBackground" options:Freeze="True" Color="#FFFFFFFF" />
+
+
+    <!--=====================================================-->
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="Gray1">#FF333333</Color>

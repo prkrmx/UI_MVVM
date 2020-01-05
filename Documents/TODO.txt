@@ -1,0 +1,5 @@
+1. Create controls and set the themes colors
+2. DataGrid Style: Header and Items
+3. Add Bing Map and explore it
+4. List biding user controls
+5. Virtual joystick colors

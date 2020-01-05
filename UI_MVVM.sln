@@ -10,6 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{B391FA4D-9261-443E-B0A4-0AC7B7DFB426}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{1367BCAA-8F77-456A-80E8-C014CC50C241}"
+	ProjectSection(SolutionItems) = preProject
+		Documents\TODO.txt = Documents\TODO.txt
+		Documents\Whats New.txt = Documents\Whats New.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Views", "UI.Views\UI.Views.csproj", "{27279CD7-50DF-4783-923C-CA5C63FAF6CF}"
 EndProject

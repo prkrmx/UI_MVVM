@@ -17,7 +17,6 @@ namespace UI.ViewModels.ViewModels
 
         private HamburgerMenuItemCollection _menuItems;
         private HamburgerMenuItemCollection _menuOptionItems;
-        private HamburgerMenuIconItem _selectedMenuItem;
 
         public HamburgerMenuItemCollection MenuItems
         {
@@ -44,24 +43,12 @@ namespace UI.ViewModels.ViewModels
             }
         }
 
-        public HamburgerMenuIconItem SelectedMenuItem
-        {
-            get { return _selectedMenuItem; }
-            set
-            {
-                if (Equals(value, _selectedMenuItem))
-                    return;
-                _selectedMenuItem = value;
-                Log.Debug(String.Format("Set SelectedMenuItem {0}", value.Label));
-                OnPropertyChanged("SelectedMenuItem");
-            }
-        }
+
 
         public MenuViewModel()
         {
             DTO.LocalizeMenuItemsInterface = this as ILocalizeMenuItems;
             this.CreateMenuItems();
-            SelectedMenuItem = MenuItems.First() as HamburgerMenuIconItem;
         }
 
         public void CreateMenuItems()

@@ -9,6 +9,13 @@
 
     <!--Style View -->
     <sys:String x:Key="Accents">ACCENTS</sys:String>
+    <sys:String x:Key="Themes">THEMES</sys:String>
     <sys:String x:Key="DarkMode">DARK MODE</sys:String>
     <sys:String x:Key="Language">LANGUAGE</sys:String>
+
+    <sys:String x:Key="DayTheme">DAY</sys:String>
+    <sys:String x:Key="TintedTheme">TINTED</sys:String>
+    <sys:String x:Key="NightTheme">NIGHT</sys:String>
+    
+
 </ResourceDictionary>

@@ -1,6 +1,27 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+    <!--=====================================================-->
+
+    <Color x:Key="MenuHeader">#FF17212B</Color>
+    <Color x:Key="MenuHeaderBorder">#FF101921</Color>
+    <Color x:Key="MenuContent">#FF0E1621</Color>
+    <Color x:Key="MenuContentBorder">#FF0A121B</Color>
+    <Color x:Key="HeaderForeground">#FFF5F5F5</Color>
+    <Color x:Key="MainForeground">#FF708499</Color>
+    <Color x:Key="GroupBoxColor">#FF182533</Color>
+
+
+    <SolidColorBrush x:Key="MenuHeaderBrush" options:Freeze="True" Color="{StaticResource MenuHeader}" />
+    <SolidColorBrush x:Key="MenuHeaderBorderBrush" options:Freeze="True" Color="{StaticResource MenuHeaderBorder}" />
+    <SolidColorBrush x:Key="MenuContentBrush" options:Freeze="True" Color="{StaticResource MenuContent}" />
+    <SolidColorBrush x:Key="MenuContentBorderBrush" options:Freeze="True" Color="{StaticResource MenuContentBorder}" />
+    <SolidColorBrush x:Key="MenuHeaderForeground" options:Freeze="True" Color="{StaticResource HeaderForeground}" />
+    <SolidColorBrush x:Key="MainForegroundBrush" options:Freeze="True" Color="{StaticResource MainForeground}" />
+    <SolidColorBrush x:Key="GroupBoxBackground" options:Freeze="True" Color="{StaticResource GroupBoxColor}" />
+
+    <!--=====================================================-->
+    
     <Color x:Key="BlackColor">#FFFFFFFF</Color>
     <Color x:Key="WhiteColor">#FF252525</Color>
     <Color x:Key="Gray1">#FFF9F9F9</Color>

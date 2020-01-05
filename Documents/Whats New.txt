@@ -1,0 +1,10 @@
+			What's new in the latest version
+
+
+Version 1.0.0
+	1.New:
+		•
+	2.Bugs fixed:
+		•
+	3.Notes:
+		•

@@ -22,7 +22,7 @@
     </i:Interaction.Triggers>
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout x:Name="flyout" Header="{DynamicResource AppStyle}" Position="Right" Width="260" Theme="Adapt"
+            <Controls:Flyout x:Name="flyout" Header="{DynamicResource AppStyle}" Position="Right" Width="270" Theme="Adapt"
                              Background="{DynamicResource MenuHeaderBrush}" BorderThickness="1,0,0,0" 
                              BorderBrush="{DynamicResource MenuContentBorderBrush}">
                 <views:StyleView/>

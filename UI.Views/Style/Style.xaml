@@ -21,4 +21,5 @@
         <Setter Property="Foreground" Value="{DynamicResource BlackBrush}"/>
     </Style>
 
+
 </ResourceDictionary>

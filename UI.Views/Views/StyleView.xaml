@@ -30,417 +30,58 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="0" Grid.Row="0" Text="{DynamicResource Accents}"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
-            <Grid Grid.Row="1"  ShowGridLines="False">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="42"/>
-                    <RowDefinition Height="42"/>
-                    <RowDefinition Height="42"/>
-                    <RowDefinition Height="42"/>
-                    <RowDefinition Height="42"/>
-                </Grid.RowDefinitions>
-                <Ellipse Grid.Column="0" Grid.Row="0" Tag="Lime" Fill="#FFA4C400" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="1" Grid.Row="0" Tag="Red" Fill="#FFE51400" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="2" Grid.Row="0" Tag="Green" Fill="#FF60A917" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="3" Grid.Row="0" Tag="Blue" Fill="#FF119EDA" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="4" Grid.Row="0" Tag="Purple" Fill="#FF6459DF" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
+            <ListBox  Grid.Row="1" ItemsSource="{Binding Accents}" SelectedItem="{Binding SelectedAccent}" Background="Transparent">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" HorizontalAlignment="Left"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <Border Name="Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                                        <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="{TemplateBinding Padding}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity"  Value=".8"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
 
-                <Ellipse Grid.Column="0" Grid.Row="1" Tag="Orange" Fill="#FFFA6800" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="1" Grid.Row="1" Tag="Emerald" Fill="#FF008A00" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="2" Grid.Row="1" Tag="Teal" Fill="#FF00ABA9" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="3" Grid.Row="1" Tag="Cyan" Fill="#FF1BA1E2" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="4" Grid.Row="1" Tag="Cobalt" Fill="#FF0050EF" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-
-                <Ellipse Grid.Column="0" Grid.Row="2" Tag="Indigo" Fill="#FF6A00FF" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="1" Grid.Row="2" Tag="Violet" Fill="#FFAA00FF" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="2" Grid.Row="2" Tag="Pink" Fill="#FFF472D0" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="3" Grid.Row="2" Tag="Magenta" Fill="#FFD80073" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="4" Grid.Row="2" Tag="Crimson" Fill="#FFA20025" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-
-                <Ellipse Grid.Column="0" Grid.Row="3" Tag="Amber" Fill="#FFF0A30A" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="1" Grid.Row="3" Tag="Yellow" Fill="#FFFEDE06" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="2" Grid.Row="3" Tag="Brown" Fill="#FF825A2C" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="3" Grid.Row="3" Tag="Olive" Fill="#FF6D8764" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="4" Grid.Row="3" Tag="Steel" Fill="#FF647687" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-
-                <Ellipse Grid.Column="0" Grid.Row="4" Tag="Mauve" Fill="#FF76608A" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="1" Grid.Row="4" Tag="Taupe" Fill="#FF87794E" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-                <Ellipse Grid.Column="2" Grid.Row="4" Tag="Sienna" Fill="#FFA0522D" Width="32" Height="32">
-                    <Ellipse.Style>
-                        <Style TargetType="{x:Type Ellipse}">
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Opacity" Value="0.8"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Ellipse.Style>
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="PreviewMouseUp">
-                            <i:InvokeCommandAction Command="{Binding SetAccent}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Ellipse}}"/>
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Ellipse>
-
-            </Grid>
-            <!--<ComboBox Grid.Column="0" Grid.Row="1" ItemsSource="{x:Static metro:ThemeManager.Accents}" SelectedItem="{Binding SelectedAccent}" >
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}" Style="{StaticResource GroupBoxHeaderTextBlockStyle}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>-->
             <TextBlock Grid.Column="0" Grid.Row="2" Text="{DynamicResource Themes}"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,4"/>
-
-            <StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal">
-                <RadioButton Content="{DynamicResource DayTheme}" Command="{Binding SwitchTheme}" CommandParameter="Day"/>
-                <RadioButton Content="{DynamicResource TintedTheme}" Command="{Binding SwitchTheme}" CommandParameter="Tinted" Margin="10,0"/>
-                <RadioButton Content="{DynamicResource NightTheme}" Command="{Binding SwitchTheme}" CommandParameter="Night"/>
-            </StackPanel>
-            <!--<StackPanel Grid.Column="0" Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="-5,5,0,0"  >
-                <Controls:ToggleSwitchButton  Width="50" Height="28" Margin="0,0,5,0"  IsChecked="{Binding Path=SelectedNight}"/>
-                <TextBlock Text="{DynamicResource DarkMode}"  VerticalAlignment="Center"  />
-            </StackPanel>-->
-
+            <ListBox Grid.Column="0" Grid.Row="3" Background="Transparent"
+                     ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="3"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <RadioButton Background="Transparent" HorizontalAlignment="Left"
+                                                 IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected}">
+                                        <ContentPresenter/>
+                                    </RadioButton>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
             <StackPanel Grid.Column="0" Grid.Row="4"  HorizontalAlignment="Left" VerticalAlignment="Top">
-                <TextBlock Text="{DynamicResource Language}" Margin="0,10,0,3"/>
-                <ComboBox ItemsSource="{Binding Path=Languages}" SelectedItem="{Binding Path=SelectedLanguage}" DisplayMemberPath="Name" Width="150"/>
+                <TextBlock Text="{DynamicResource Language}" Margin="0,10,0,5"/>
+                <ComboBox ItemsSource="{Binding Path=Languages}" SelectedItem="{Binding Path=SelectedLanguage}" DisplayMemberPath="Name" Width="150" Background="Transparent"/>
             </StackPanel>
         </Grid>
     </Grid>

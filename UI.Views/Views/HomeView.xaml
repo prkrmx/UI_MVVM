@@ -31,9 +31,6 @@
                     <Controls:ToggleSwitchButton  Width="50" Height="28" Name="IsGSM" IsChecked="True"/>
                 </StackPanel>
             </Border>
-            
-
-            
             <Grid Margin="10,0,10,10" IsEnabled="{Binding ElementName=IsGSM, Path=IsChecked, UpdateSourceTrigger=PropertyChanged}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0"/>
@@ -91,5 +88,6 @@
 
             </Grid>
         </StackPanel>
+
     </Grid>
 </UserControl>

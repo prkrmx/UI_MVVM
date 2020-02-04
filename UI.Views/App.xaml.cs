@@ -23,9 +23,10 @@ namespace UI.Views
         {
             Log.Info("        =============  Started New Session Logging  =============        ");
 
-            ThemeManager.AddAppTheme("Day", new Uri("pack://application:,,,/Themes/Day.xaml"));
-            ThemeManager.AddAppTheme("Tinted", new Uri("pack://application:,,,/Themes/Tinted.xaml"));
-            ThemeManager.AddAppTheme("Night", new Uri("pack://application:,,,/Themes/Night.xaml"));
+            
+            ThemeManager.AddAppTheme("TINTED", new Uri("pack://application:,,,/Themes/Tinted.xaml"));
+            ThemeManager.AddAppTheme("NIGHT", new Uri("pack://application:,,,/Themes/Night.xaml"));
+            ThemeManager.AddAppTheme("DAY", new Uri("pack://application:,,,/Themes/Day.xaml"));
 
 
             EventManager.RegisterClassHandler(
@@ -107,7 +108,7 @@ namespace UI.Views
             DTO.AppLocalize.ChangeLanguage(subKey.GetValue("Language", "ru").ToString());
             ThemeManager.ChangeAppStyle(Application.Current,
                 ThemeManager.GetAccent(subKey.GetValue("Accent", "Lime").ToString()),
-                ThemeManager.GetAppTheme(subKey.GetValue("AppTheme", "Night").ToString()));
+                ThemeManager.GetAppTheme(subKey.GetValue("AppTheme", "NIGHT").ToString()));
             subKey.Close();
 
         }
